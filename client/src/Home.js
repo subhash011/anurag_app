@@ -4,6 +4,7 @@ import {isAuthenticated} from "./Auth/auth.utils";
 import Referral from "./User/Referral";
 import Register from "./User/Register";
 import {Toast} from "primereact/toast";
+import Reward from "./User/Reward";
 
 function Home() {
 
@@ -29,6 +30,7 @@ function Home() {
                     setIsRegistered(true)
                 }} />}
                 {isLoggedIn && <Referral />}
+                <Reward />
             </div>
         </React.Fragment>
     );

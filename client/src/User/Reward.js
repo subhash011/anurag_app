@@ -1,8 +1,8 @@
 import React, {useEffect, useMemo, useState} from "react";
-import {Wheel} from "react-custom-roulette";
 import {Button} from "primereact/button";
 import {getUserReward, addUserReward} from "../services/reward.service";
 import {BlockUI} from "primereact/blockui";
+import Wheel from "./Wheel";
 
 function Reward() {
 
@@ -45,14 +45,7 @@ function Reward() {
             <div className="grid">
                 <div className="col-12 lg:col-6 h-screen flex flex-column justify-content-center align-items-center">
                     <BlockUI template={<i className="pi pi-lock" style={{'fontSize': '3rem'}}/>} blocked={blockSpin}>
-                        <Wheel
-                            mustStartSpinning={mustSpin}
-                            prizeNumber={prizeNumber}
-                            data={prizeData}
-                            radiusLineWidth={2}
-                            innerRadius={10}
-                            onStopSpinning={handleSubmit}
-                        />
+                        <Wheel items={prizeData.map(v => v.option)} onSelectItem={console.log} />
                         <div className="w-full flex justify-content-center">
                             <Button label="Get my reward" className="mt-4" onClick={handleSpinClick}/>
                         </div>

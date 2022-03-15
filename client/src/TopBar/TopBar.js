@@ -26,12 +26,6 @@ function TopBar(props) {
             icon: 'pi pi-fw pi-home',
             url: '/',
             template: template
-        },
-        loggedIn && {
-            label: 'Rewards',
-            icon: 'pi pi-money-bill',
-            url: '/reward',
-            template: template
         }
     ];
 
