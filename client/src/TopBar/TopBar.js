@@ -4,9 +4,10 @@ import './topbar.scss';
 import {Button} from "primereact/button";
 import {Link} from "react-router-dom";
 import React, {useEffect} from "react";
-import {isAuthenticated} from "../Auth/auth.utils";
+import {isAuthenticated} from "../components/auth/auth.utils";
 
-function TopBar(props) {
+function TopBar() {
+
 
     const [loggedIn, setLoggedIn] = React.useState(false);
 
@@ -29,14 +30,6 @@ function TopBar(props) {
         }
     ];
 
-    const ThemeSwitchButton = (props) => {
-        if (props.theme === 'light') {
-            return <i className="pi pi-sun" />
-        }
-        return <i className="pi pi-moon" />
-
-    };
-
     useEffect(() => {
         setLoggedIn(isAuthenticated());
     }, []);
@@ -49,9 +42,6 @@ function TopBar(props) {
                         {loggedIn && <Button icon="pi pi-sign-out" className="p-button-text" onClick={() => {
                             localStorage.removeItem('token');
                         }}/>}
-                        <Button icon={<ThemeSwitchButton theme={props.theme}/>}
-                                onClick={props.toggleTheme}
-                                className="p-button-rounded p-button-text theme-button"/>
                     </React.Fragment>
                 }/>
             </div>

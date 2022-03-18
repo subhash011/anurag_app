@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import OtpInput from "./OtpInput";
 import PhoneInput from "./PhoneInput";
-import {requestOTP, verifyOTP} from "../services/auth.service";
+import {requestOTP, verifyOTP} from "services/auth.service";
 import {Toast} from "primereact/toast";
 import {useLocation} from "react-router-dom";
 

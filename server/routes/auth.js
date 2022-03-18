@@ -47,18 +47,15 @@ router.post('/requestOTP', async (req, res) => {
         user = new UserModel({phone: {number: phone}});
     }
     await generateOTP(user);
-    return res.status(200).json({
-        type: 'success',
-        message: 'OTP sent successfully',
-    });
+    return res.sendStatus(201);
 });
 
-router.post('/verifyOTP', async (req, res) => {
+router.post('/verifyOTP', async (req, res, next) => {
     const {phone, otp, referrer} = req.body;
     let user = await UserModel.findOne({"phone.number": phone});
     if (!user) {
         return next({
-            status: 400,
+            status: 404,
             message: 'User does not exist'
         });
     }
@@ -75,15 +72,11 @@ router.post('/verifyOTP', async (req, res) => {
     if (referrer && user.phone.counter === 1) {
         referred = await updateReferral(referrer, user._id);
     }
-    return res.status(200).json({
-        type: 'success',
-        message: 'OTP verified successfully',
-        referralStatus: {
-            referrer: !!referrer,
-            referred: referred
-        },
-        isRegistered: user.isRegistered,
-        data: {token: createJwtToken({_id: user._id})},
+    return res.status(201).json({
+        token: createJwtToken({_id: user._id}),
+        isReferral: !!referrer,
+        referralSuccess: referred,
+        isRegistered: user.isRegistered
     });
 });
 

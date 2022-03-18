@@ -22,18 +22,12 @@ router.post('/registerUser', async function (req, res, next) {
     user.email = email;
     user.isRegistered = true;
     await user.save();
-    return res.status(201).json({
-        type: 'success',
-        user,
-    });
+    return res.status(201).json(user);
 });
 
 router.get('/', async function (req, res, next) {
     const user = req.user;
-    return res.status(200).json({
-        type: 'success',
-        user,
-    });
+    return res.status(200).json(user);
 });
 
 module.exports = router;

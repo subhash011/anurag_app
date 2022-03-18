@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
-import Login from "./Auth/Login";
-import {isAuthenticated} from "./Auth/auth.utils";
+import Login from "./components/auth/Login";
+import {isAuthenticated} from "./components/auth/auth.utils";
 import Referral from "./User/Referral";
 import Register from "./User/Register";
 import {Toast} from "primereact/toast";

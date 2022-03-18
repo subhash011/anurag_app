@@ -8,10 +8,8 @@ const isEligibleForReward = (rewardObj) => {
     }
     const rewardsCount = rewardObj.rewards.length;
     const referralsCount = rewardObj.referees.length;
-    if (referralsCount - rewardsCount >= 0) {
-        return true;
-    }
-    return false;
+    return referralsCount - rewardsCount >= 0;
+
 }
 
 router.get('/', async (req, res) => {
@@ -47,10 +45,8 @@ router.post('/', async function (req, res, next) {
     }
     rewardObj.rewards.push(reward);
     await rewardObj.save();
-    res.status(200).json({
-        type: 'success',
-        message: 'Reward added successfully',
-        data: rewardObj,
+    res.status(201).json({
+        rewardObj,
     });
 });
 
