@@ -100,10 +100,15 @@ function Home() {
         </div>
       </div>
       <div className="grid mt-4 w-full">
-        <div className="col-12 lg:col-6 flex flex-column align-items-center justify-content-center bg-blue-400">
+        <div style={{
+          backgroundImage: `url(${require('../assets/pay_bg.jpeg')})`,
+        }} className="col-12 lg:col-6 flex flex-column align-items-center justify-content-center">
           <h2 className="mb-0">Track Expenses</h2>
           <p className="text-center">Keep track of shared expenses, balances, and who owes who.</p>
-          <Image className="mt-2" src={'https://www.splitwise.com/assets/home_page/fixtures/asset1.png'} alt=""/>
+          <video autoPlay loop muted playsInline className="h-30rem">
+            <source src={require('../assets/pay.webm')} type="video/webm" />
+            <source src={require('../assets/pay.mp4')} type="video/mp4" />
+          </video>
         </div>
         <div className="col-12 lg:col-6 flex flex-column align-items-center justify-content-center bg-green-400">
           <h2 className="mb-0">Track Expenses</h2>
