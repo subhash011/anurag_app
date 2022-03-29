@@ -105,9 +105,9 @@ function Home() {
         }} className="col-12 lg:col-6 flex flex-column align-items-center justify-content-center">
           <h2 className="mb-0">Track Expenses</h2>
           <p className="text-center">Keep track of shared expenses, balances, and who owes who.</p>
-          <video autoPlay loop muted playsInline className="h-30rem">
-            <source src={require('../assets/pay.webm')} type="video/webm" />
-            <source src={require('../assets/pay.mp4')} type="video/mp4" />
+          <video autoPlay loop muted playsInline className="w-20rem">
+            <source src={require('../assets/split_bill.webm')} type="video/webm" />
+            <source src={require('assets/split_bill.mp4')} type="video/mp4" />
           </video>
         </div>
         <div className="col-12 lg:col-6 flex flex-column align-items-center justify-content-center bg-green-400">
